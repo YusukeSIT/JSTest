@@ -1,7 +1,5 @@
-var plane = document.getElementById('scaling');
-
 document.addEventListener('DOMContentLoaded', function() {
-  var scale = plane.getAttribute('scale');
+  var scale = 1;
   var pinchStartDistance = null;
 
   function handleTouchMove(e) {
@@ -18,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
       pinchStartDistance = distance;
       return;
     }
-    
+
     scale *= distance / pinchStartDistance;
     pinchStartDistance = distance;
-    plane.setAttribute('scale', scale);
+    document.body.style.transform = 'scale(' + scale + ')';
   }
 
   function handleTouchEnd() {
