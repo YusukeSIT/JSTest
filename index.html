@@ -4,13 +4,21 @@
 		<meta http-equiv="content-type" charset="utf-8">
 		<link rel="stylesheet" href="./data/style.css" type="text/css">
 		<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-		<script src="./data/scaling.js" defer></script>		
 	</head>
 	<body>
-		<a-scene embedded arjs vr-mode-ui="enabled: false;">
-			<a-plane id="scaling" position="0 0 -2" scale="1 1 1" color="yellow"></a-plane>
-			<a-entity camera look-controls="enabled: false;"></a-entity>
+		<a-scene>
+			<a-plane id="moving" position="3 0 -2" scale="0.3 1 1" color="cyan" opacity="0.5" animation="property: position; from: 3 0 -2; to: -3 0 -2;  loop: true; dure: 1000; dir: alternate; easing: linear"></a-plane>
+			<!--
+			<a-entity id="rotation" animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dure: 1000; easing: linear">
+			-->
+			</a-entity>
+			<a-entity camera look-controls="touchEnabled: false; mouseEnabled:false;"></a-entity>
 		</a-scene>
+		<input type="button" id="b1" value="stop!" onclick="clicked();">
+		<input type="button" id="b2" value="Touch controls is disabled!" onclick="changeTouchControls();">
+		<h1 id="gameEnd"></h1>
+
+		
+		<script src="./data/addBox.js"></script>
 	</body>
-</html>
+</html>	
